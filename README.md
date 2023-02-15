@@ -207,6 +207,6 @@ Tabel 6. Hasil Rekomendasi Sistem dengan Teknik *Content Based Filtering* berdas
 |                               Journey to the East | Adventure stories |               Iya |
 |                              Aspects of the Novel |   English fiction |               Iya |
  
-**P = 3/5 = 0,6 (60%)
+**P = 3/5 = 0,6 (60%)**
  
 Didapatkanlah nilai *Precision* sebesar 60%. Hasil ini masih terbilang kurang baik, dikarenakan referensi yang diberikan tidak memiliki kategori yang sama seperti buku yang menjadi acuan (*Fiction*).
