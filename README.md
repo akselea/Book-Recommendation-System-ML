@@ -9,6 +9,7 @@ Berikut merupakan Proyek Akhir mengenai *Recommendation System* untuk memprediks
 <br>
 Gambar 1. Kumpulan Buku pada Rak Buku
 
+
 Ditengah kondisi zaman yang semakin berkembang pesat, kebutuhan setiap manusia pun akan semakin bertambah demi memenuhi kebutuhan hariannya. Mudahnya akses untuk mendapatkan apa yang dibutuhkan oleh manusia merupakan salah satu cara agar setiap manusia bisa memenuhi kebutuhannya tanpa mengganggu aktivitas yang ada. Dengan ada nya banyak jenis *online shop* saat ini, setiap orang bisa membeli barang yang dibutuhkan tanpa harus repot datang ke toko dan berinteraksi dengan macetnya jalanan saat ini. Tapi, terkadang kita lupa membeli barang yang kita butuhkan atau barang yang kita inginkan saat memebeli produk barang lain. Disinilah sistem rekomendasi memiliki perannya.
 
 Sistem rekomendasi buku merupakan hasil pengembangan dari teknologi kecerdasan buatan (AI) dan analisis data yang telah berkembang sejak beberapa dekade lalu. Pada awalnya, teknologi ini digunakan untuk merekomendasikan produk pada toko online seperti Amazon dan Netflix. Namun, dengan semakin banyaknya jumlah buku yang tersedia, baik di toko buku maupun perpustakaan, membuat pencarian buku yang cocok dengan preferensi pembaca semakin sulit.
@@ -100,7 +101,7 @@ Tabel 1. *Dataset 7k Books* Setelah Proses *Exploratory Data Analysis*
 
   Setelah beberapa proses dilakukan, proses terakhir adalah me*reset* kembali *index* pada *dataset* agar saat model ingin memanggil data yang dibutuhkan, tidak terjadi *error* akibat nilai *index* melebihi total data yang ada pada *dataset*. Proses ini dilakukan menggunakan fungsi `.reset_index()`.
   
-  - **Merapihkan Nilai *Rating***
+- **Merapihkan Nilai *Rating***
 
   Setelah proses di atas telah dilakukan, maka proses selanjutnya adalah membuat variabel baru dengan nama 'rating_df' yang akan digunakan untuk melatih model agar dapat merekomendasikan buku kepada pengguna, akan tetapi saat ditampilkan pada variabel 'rating_df' terdapat nilai *rating* buku yang memiliki nilai 0. Maka dari itu, buku yang memiliki nilai *rating* = 0 akan dihapus.
   
