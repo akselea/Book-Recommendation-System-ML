@@ -7,8 +7,8 @@ Berikut merupakan Proyek Akhir mengenai *Recommendation System* untuk memprediks
 <br>
 <div><img src="https://images.pexels.com/photos/2908984/pexels-photo-2908984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"></div>
 <br>
-Gambar 1. Kumpulan Buku pada Rak Buku
 
+Gambar 1. Kumpulan Buku pada Rak Buku
 
 Ditengah kondisi zaman yang semakin berkembang pesat, kebutuhan setiap manusia pun akan semakin bertambah demi memenuhi kebutuhan hariannya. Mudahnya akses untuk mendapatkan apa yang dibutuhkan oleh manusia merupakan salah satu cara agar setiap manusia bisa memenuhi kebutuhannya tanpa mengganggu aktivitas yang ada. Dengan ada nya banyak jenis *online shop* saat ini, setiap orang bisa membeli barang yang dibutuhkan tanpa harus repot datang ke toko dan berinteraksi dengan macetnya jalanan saat ini. Tapi, terkadang kita lupa membeli barang yang kita butuhkan atau barang yang kita inginkan saat memebeli produk barang lain. Disinilah sistem rekomendasi memiliki perannya.
 
