@@ -62,7 +62,7 @@ Sebelum nantinya data aka diproses oleh model, langkah yang dilakukan awalnya ad
 - Menghapus kolom yang tidak memiliki hubungan atau tidak relevan dengan sistem rekomendasi buku, yaitu kolom 'subtitle', 'description', isbn10', 'num_pages', 'ratings_count', dan 'thumbnail' dengan fungsi `.drop()`.
 - Menghapus data yang hilang (*missing value*) pada *dataset* dengan fungsi `.dropna()`.
 
-## Data Preparation
+## *Data Preparation*
 Dalam bagian ini, ada beberapa hal yang akan dilakukan guna menunjang data yang baik untuk digunakan untuk melatih model. Berikut data yang sudah dibersihkan pada tahap sebelumnya.
 
 Tabel 1. *Dataset 7k Books* Setelah Proses *Exploratory Data Analysis*
@@ -137,8 +137,12 @@ Tabel 1. *Dataset 7k Books* Setelah Proses *Exploratory Data Analysis*
   |                                         I Am that |                    Philosophy |   4.51 |
   |                           I m Telling You Stories |            Literary Criticism |   3.70 |
   
-## Modeling
+## *Modeling and Result*
 Pada tahap ini, akan dilakukan pengujian dan pelatihan model menggunakan teknik *Content Based Filtering*.
+
+### *Content Based Filtering*
+
+
 
 
 
