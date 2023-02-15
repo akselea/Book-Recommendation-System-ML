@@ -32,7 +32,7 @@ Berikut beberapa solusi yang dapat dilakukan untuk menjawab pertanyaan di atas:
 - Mempelajari dan melihat korelasi data agar mendapatkan fitur yang berpengaruh terhadap sistem rekomendasi buku.
 - Mencoba teknik yang biasanya digunakan dalam sistem rekomendasi buku.
 
-### *Solution statements*
+### *Solution Statements*
 - Menggunakan teknik yang kerap digunakan untuk sistem rekomendasi buku (*Content Based Filtering*).
 
 ## *Data Understanding*
@@ -56,7 +56,7 @@ Data yang digunakan dalam proyek ini merupakan data mengenai buku dengan beberap
 
 Agar data ini dapat diproses dengan baik oleh model, maka dilakukan beberapa langkah sebagai berikut:
 
-### *Exploratory Data Analysis*:
+### *Exploratory Data Analysis*
 Sebelum nantinya data aka diproses oleh model, langkah yang dilakukan awalnya adalah mencari *missing value* pada setiap kolom data, menghapus fitur yang tidak relevan terhadap sistem rekomendasi buku, serta menentukan data mana yang berpengaruh terhadap sistem rekomendasi buku.
 
 - Menghapus kolom yang tidak memiliki hubungan atau tidak relevan dengan sistem rekomendasi buku, yaitu kolom 'subtitle', 'description', isbn10', 'num_pages', 'ratings_count', dan 'thumbnail' dengan fungsi `.drop()`.
@@ -140,10 +140,73 @@ Tabel 1. *Dataset 7k Books* Setelah Proses *Exploratory Data Analysis*
 ## *Modeling and Result*
 Pada tahap ini, akan dilakukan pengujian dan pelatihan model menggunakan teknik *Content Based Filtering*.
 
-### *Content Based Filtering*
+- ***Content Based Filtering***
 
+  *Content Based Filtering* merupakan salah satu teknik dalam sistem rekomendasi yang menggunakan informasi atau konten dari item yang direkomendasikan (dalam konteks sistem rekomendasi buku, bisa berupa informasi dari buku) untuk membuat rekomendasi.
 
+   Dalam *Content Based Filtering*, setiap item (buku) dijelaskan dengan serangkaian atribut atau fitur, seperti kategori, penulis, tahun terbit, atau kata kunci yang ada dalam sinopsis atau deskripsi buku. Setiap pengguna juga dijelaskan dengan serangkaian preferensi atau minat mereka, berdasarkan atribut atau fitur yang sama dengan yang digunakan untuk deskripsi buku.
 
+  Kemudian, sistem menggunakan algoritma untuk membandingkan atribut atau fitur buku dengan preferensi pengguna untuk menentukan seberapa cocok buku dengan pengguna. Buku-buku yang memiliki atribut atau fitur yang paling mirip dengan preferensi pengguna akan diberikan prioritas lebih tinggi dalam daftar rekomendasi.
+  
+  Dalam penggunaan teknik *Content Based Filtering* ini, terdapat beberapa fungsi yang digunakan terlebih dahulu:
+  - `TfidfVectorizer()` : Berfungsi untuk menghitung bobot kata-kata dalam suatu dokumen. Bobot kata-kata dihitung dengan menggabungkan dua faktor, yaitu frekuensi kata dalam dokumen (*Term Frequency*) dan kepentingan kata tersebut dalam seluruh dokumen (*Inverse Document Frequency*). Dengan fungsi `TfidfVectorizer()`, dokumen teks diubah menjadi vektor numerik, di mana setiap elemen vektor merepresentasikan bobot kata-kata dalam dokumen tersebut. Vektor ini kemudian dapat digunakan sebagai fitur dalam teknik *Content Based Filtering*.
 
+  - `cosine_similarity()` : Digunakan untuk mengukur seberapa mirip antara vektor fitur buku dan preferensi pengguna. Semakin tinggi nilai `cosine_similarity()` antara dua vektor, semakin mirip keduanya. Dalam teknik *Content Based Filtering*, `cosine_similarity()` dapat digunakan untuk menghitung kesesuaian antara vektor fitur buku yang dihasilkan dari `TfidfVectorizer()` dengan preferensi pengguna yang dinyatakan dalam bentuk vektor fitur. Hasil `TfidfVectorizer()` ini dapat digunakan untuk menentukan urutan rekomendasi buku yang paling sesuai dengan preferensi pengguna.
 
+  Dalam penggunaannya, terdapat beberapa kelebihan dan kekurangan dari teknik *Content Based Filtering* ini:
+  - **Kelebihan**
 
+    1. Teknik ini cenderung memberikan rekomendasi yang lebih spesifik, karena model hanya berfokus pada fitur yang relevan dengan buku tersebut.
+    2. Teknik ini pun dapat menghasilkan rekomendasi yang sesuai, walaupun buku tersebut tidak memiliki riwayat lebih atau nilai *rating* yang tinggi.
+
+  - **Kekurangan**
+
+    1. Rekomendasi yang direkomendasikan cenderung sama seperti buku yang telah dibaca oleh pengguna.
+
+  Dengan penggunaan teknik *Content Based Filtering* ini, diujikan model untuk memberikan 5 rekomendasi buku berdasarkan buku ***The Da Vinci Code***.
+  
+  Tabel 4. Data Buku ***The Da Vinci Code***
+  
+  |             title | category | rating |
+  |------------------:|---------:|-------:|
+  | The Da Vinci Code |  Fiction |   3.82 |
+  
+  Tabel 5. Hasil Rekomendasi Sistem dengan Teknik *Content Based Filtering* berdasarkan Buku ***The Da Vinci Code***
+  
+  |                                             title |          category |
+  |--------------------------------------------------:|------------------:|
+  |                                   Cry the Peacock |           Fiction |
+  |                                         I Am that |        Philosophy |
+  | The Monk Who Sold His Ferrari A Fable About Fu... |  Health & Fitness |
+  |                               Journey to the East | Adventure stories |
+  |                              Aspects of the Novel |   English fiction |
+ 
+## *Evaluation*
+Pada tahap ini, akan dilakukan evaluasi dari hasil rekomendasi buku pada teknik *Content Based Filtering*.
+
+Untuk melihat relevan atau tidaknya hasil yang sudah model berikan, dapat digunakan rumus untuk mencari nilai *precision* sebagai berikut:
+
+<img width="427" alt="image" src="https://user-images.githubusercontent.com/116968275/218938783-d4949dee-cb35-4df6-9fcc-21f70bc5e9dc.png">
+
+Gambar 5. Rumus Mencari Nilai *Precision*
+
+**Penjelasan**:
+- P : Nilai *Precision*
+- #*of our recommendations that are relevant* : Jumlah hasil rekomendasi model yang relevan
+- #*of items we recommended* : Jumlah rekomendasi model
+
+Dengan menggunakan rumus di atas dan melihat hasil rekomendasi dari model pada Tabel 5, maka didapatkan nilai *Precision*:
+
+Tabel 6. Hasil Rekomendasi Sistem dengan Teknik *Content Based Filtering* berdasarkan Buku ***The Da Vinci Code***
+  
+|                                             title |          category |           Relevan |
+|--------------------------------------------------:|------------------:|------------------:|
+|                                   Cry the Peacock |           Fiction |               Iya |
+|                                         I Am that |        Philosophy |             Tidak |
+| The Monk Who Sold His Ferrari A Fable About Fu... |  Health & Fitness |             Tidak |
+|                               Journey to the East | Adventure stories |               Iya |
+|                              Aspects of the Novel |   English fiction |               Iya |
+ 
+**P = 3/5 = 0,6 (60%)
+ 
+Didapatkanlah nilai *Precision* sebesar 60%. Hasil ini masih terbilang kurang baik, dikarenakan referensi yang diberikan tidak memiliki kategori yang sama seperti buku yang menjadi acuan (*Fiction*).
