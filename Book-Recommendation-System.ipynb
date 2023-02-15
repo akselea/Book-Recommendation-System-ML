@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyO2l+LcsKUJwG9Yc/Ehd/ta",
+      "authorship_tag": "ABX9TyMlOjr4ORccwjKDPBhBONl9",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -51,7 +51,7 @@
     {
       "cell_type": "code",
       "source": [
-        "# Memasukan library yang dibutuhkan dalam membangun model\n",
+        "# Memasukan library yang dibutuhkan dalam membangun Sistem Rekomendasi Buku\n",
         "import pathlib\n",
         "import os\n",
         "from google.colab import files\n",
@@ -67,7 +67,7 @@
       "metadata": {
         "id": "rDV7jy1o66Ne"
       },
-      "execution_count": 1,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -88,7 +88,7 @@
       "metadata": {
         "id": "VHM0Rkjt8gBU"
       },
-      "execution_count": 2,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -105,7 +105,7 @@
         "id": "AcXfSSXx8nOO",
         "outputId": "77a7e5b9-fda8-45d8-b616-ec49e6263b86"
       },
-      "execution_count": 3,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "display_data",
@@ -330,7 +330,7 @@
       "metadata": {
         "id": "_DIE6xC08sME"
       },
-      "execution_count": 4,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -342,7 +342,7 @@
       "metadata": {
         "id": "nOnaxjVa8y56"
       },
-      "execution_count": 5,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -358,7 +358,7 @@
         "id": "bFO-U-ms8z8g",
         "outputId": "b2951e0b-b938-4303-911e-fc0e7f232ffb"
       },
-      "execution_count": 6,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -386,7 +386,7 @@
         "id": "vZsGtOwM86i4",
         "outputId": "4473d5ea-d9da-442b-c145-05a76d9214de"
       },
-      "execution_count": 7,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -419,7 +419,7 @@
         "id": "YPZlomEa9c8O",
         "outputId": "cadafc53-97c0-40bd-8c2a-d9349bd15c7c"
       },
-      "execution_count": 8,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -462,7 +462,7 @@
         "id": "Ciq2Xxh-ahix",
         "outputId": "4671750f-52dd-4481-9c83-e2b1fc926ae5"
       },
-      "execution_count": 9,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -498,7 +498,7 @@
         "id": "9FnC-hZ1RVi6",
         "outputId": "96e77aea-1df2-4298-de6f-081beede15ef"
       },
-      "execution_count": 10,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -521,7 +521,8 @@
     {
       "cell_type": "code",
       "source": [
-        "# Menghapus data yang kosong pada dataset, dan mengganti jenis data pada kolom \"published_year\" menjadi int\n",
+        "# Menghapus data yang kosong pada dataset dengan fungsi `.dropna()`\n",
+        "# dan mengganti jenis data pada kolom \"published_year\" menjadi int dengan fungsi `.astype()`\n",
         "books = books.dropna()\n",
         "books['published_year'] = books['published_year'].astype(int)\n",
         "books.info()"
@@ -533,7 +534,7 @@
         "id": "oZdCeVU-9gf8",
         "outputId": "90e31ff5-d68c-48b9-efcb-118e08aa0a84"
       },
-      "execution_count": 11,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -580,7 +581,7 @@
     {
       "cell_type": "code",
       "source": [
-        "# Membuat dataset baru yang akan digunakan untuk model\n",
+        "# Membuat dataset baru yang akan digunakan untuk model dengan variabel 'df'\n",
         "df = books\n",
         "df.head()"
       ],
@@ -592,7 +593,7 @@
         "id": "-1FaPzRlAeX5",
         "outputId": "d58967a9-a3da-46fd-e264-8003d1c5e213"
       },
-      "execution_count": 12,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -787,7 +788,7 @@
         "id": "eIF4UQnWdffn",
         "outputId": "82e6d049-636a-404e-d5db-3320ab450353"
       },
-      "execution_count": 13,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -828,7 +829,7 @@
         "id": "OWIlOi0IVvFz",
         "outputId": "b2f13fdf-15ae-494e-965e-ea7c5475e015"
       },
-      "execution_count": 14,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -903,7 +904,7 @@
         "id": "CATOQUeRezK7",
         "outputId": "f5d2ff7c-e450-41cd-e95e-ecd2e11aac60"
       },
-      "execution_count": 15,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -944,7 +945,7 @@
         "id": "3OG4o0rXaVEU",
         "outputId": "c54b4524-3d41-409f-9961-530f2aaaacdf"
       },
-      "execution_count": 16,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -990,7 +991,7 @@
       "metadata": {
         "id": "XJ2PgY-89zxz"
       },
-      "execution_count": 17,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -1004,13 +1005,13 @@
       "metadata": {
         "id": "UV2Wh1Tbiwt4"
       },
-      "execution_count": 18,
+      "execution_count": null,
       "outputs": []
     },
     {
       "cell_type": "code",
       "source": [
-        "# Membuat Dictionary dari data judul, kategori, dan nilai buku\n",
+        "# Membuat Dictionary dari data judul, kategori, dan nilai buku dengan variabel 'rating_df'\n",
         "rating_df = pd.DataFrame({'title':books_title,\n",
         "                          'category':books_category,\n",
         "                          'rating':books_rating})\n",
@@ -1024,7 +1025,7 @@
         "id": "nV3gW6y_jAIn",
         "outputId": "d8d353ad-2602-41a7-971e-0f6f3a46fa0a"
       },
-      "execution_count": 19,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1256,7 +1257,7 @@
         "id": "pxYVzgCOkEPQ",
         "outputId": "3c2246d2-84c8-4fa1-f97d-83b87d587e3b"
       },
-      "execution_count": 20,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1483,7 +1484,7 @@
     {
       "cell_type": "code",
       "source": [
-        "# Membuat dataset baru dengan nama \"data\", serta mengambil 10 sampel random dari dataset \"data\"\n",
+        "# Membuat dataset baru dengan nama \"data\", serta mengambil 5 sampel random dari dataset \"data\"\n",
         "data = rating_df\n",
         "data.sample(5)"
       ],
@@ -1495,7 +1496,7 @@
         "id": "0JqD25TAlGap",
         "outputId": "97aa5142-cc1a-4401-f5d7-a765bb59a05a"
       },
-      "execution_count": 21,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1674,7 +1675,7 @@
         "id": "H6IcMQF0lKnR",
         "outputId": "d42e8592-24aa-4a7f-f35b-bc2fb533659e"
       },
-      "execution_count": 22,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -1774,7 +1775,7 @@
         "id": "fCOu79pLtXWh",
         "outputId": "0522d667-93bb-4b7e-c508-b1ad479ab5c0"
       },
-      "execution_count": 23,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1801,7 +1802,7 @@
         "id": "LFym_2K2ufno",
         "outputId": "eb011aa7-38ad-4677-fefa-08e14879a16c"
       },
-      "execution_count": 24,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1843,7 +1844,7 @@
         "id": "iWWvzpNVujJM",
         "outputId": "21d6c7df-7608-498f-d2bc-bb8fe8ab53dd"
       },
-      "execution_count": 25,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -2353,7 +2354,7 @@
         "id": "N8vUpkaTuyfs",
         "outputId": "65a19514-cbda-4e2b-821d-deb6899d23be"
       },
-      "execution_count": 26,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -2396,7 +2397,7 @@
         "id": "BAR8qCGIu7tm",
         "outputId": "ed878a6d-704c-4ce1-9ee8-71a7f76c0718"
       },
-      "execution_count": 27,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -2920,7 +2921,7 @@
     {
       "cell_type": "code",
       "source": [
-        "# Mmebuat fungsi baru yang berfungsi untuk menampilkan rekomendasi buku\n",
+        "# Mmebuat fungsi baru `books_recommendation` yang berfungsi untuk menampilkan rekomendasi buku\n",
         "def books_recommendations(books_name, similarity_data=cosine_sim_df, items=data[['title', 'category']], k=5):\n",
         "  index = similarity_data.loc[:, books_name].to_numpy().argpartition(range(-1, k, 1))\n",
         "  closest = similarity_data.columns[index[-1:-(k+2):-1]]\n",
@@ -2930,7 +2931,7 @@
       "metadata": {
         "id": "7GKZQmA3vJ1t"
       },
-      "execution_count": 28,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -2947,7 +2948,7 @@
         "id": "h6jjQGDMwCrt",
         "outputId": "3dfdcc89-c8c0-4531-cca0-8bf8fcec153f"
       },
-      "execution_count": 29,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -3079,7 +3080,7 @@
     {
       "cell_type": "code",
       "source": [
-        "# Menguji 10 rekomendasi buku berdasarkan buku \"The Big Four\"\n",
+        "# Menguji 10 rekomendasi buku berdasarkan buku \"The Da Vinci Code\"\n",
         "books_recommendations('The Da Vinci Code')"
       ],
       "metadata": {
@@ -3090,7 +3091,7 @@
         "id": "eOx_DiOTwXzc",
         "outputId": "5d4145e0-777a-4e91-8ebe-61e1798b96aa"
       },
-      "execution_count": 30,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
